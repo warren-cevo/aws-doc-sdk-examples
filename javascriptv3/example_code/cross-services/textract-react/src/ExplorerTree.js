@@ -65,7 +65,7 @@ const ExplorerNode = (props) => {
 const ExplorerList = (props) => {
   let childNodes = props.Children
     ? props.Children.filter((child) => {
-        return FilterMap[props.extractType].includes(child.BlockType);
+        return FilterMap?.[props.extractType]?.includes(child.BlockType);
       }).map((child) => {
         return (
           <ExplorerNode

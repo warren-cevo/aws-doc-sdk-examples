@@ -59,65 +59,79 @@ export const ExtractButtons = (props) => {
         </label>
       </div>
       <div
-        className="btn-group me-2"
-        role="group"
-        aria-label="Extract type group"
+          className="btn-group me-2"
+          role="group"
+          aria-label="Extract type group"
       >
         <input
-          type="radio"
-          className="btn-check"
-          name="extractRadio"
-          id="textRadio"
-          value="text"
-          checked={extractType === "text"}
-          disabled={!props.hasImage}
-          onChange={(event) => setExtractType(event.target.value)}
-          autoComplete="off"
+            type="radio"
+            className="btn-check"
+            name="extractRadio"
+            id="textRadio"
+            value="text"
+            checked={extractType === "text"}
+            disabled={!props.hasImage}
+            onChange={(event) => setExtractType(event.target.value)}
+            autoComplete="off"
         />
         <label className="btn btn-outline-secondary" htmlFor="textRadio">
           Text
         </label>
         <input
-          type="radio"
-          className="btn-check"
-          name="extractRadio"
-          id="tableRadio"
-          value="table"
-          checked={extractType === "table"}
-          disabled={!props.hasImage}
-          onChange={(event) => setExtractType(event.target.value)}
-          autoComplete="off"
+            type="radio"
+            className="btn-check"
+            name="extractRadio"
+            id="tableRadio"
+            value="table"
+            checked={extractType === "table"}
+            disabled={!props.hasImage}
+            onChange={(event) => setExtractType(event.target.value)}
+            autoComplete="off"
         />
         <label className="btn btn-outline-secondary" htmlFor="tableRadio">
           Table
         </label>
         <input
-          type="radio"
-          className="btn-check"
-          name="extractRadio"
-          id="formRadio"
-          value="form"
-          checked={extractType === "form"}
-          disabled={!props.hasImage}
-          onChange={(event) => setExtractType(event.target.value)}
-          autoComplete="off"
+            type="radio"
+            className="btn-check"
+            name="extractRadio"
+            id="formRadio"
+            value="form"
+            checked={extractType === "form"}
+            disabled={!props.hasImage}
+            onChange={(event) => setExtractType(event.target.value)}
+            autoComplete="off"
         />
         <label className="btn btn-outline-secondary" htmlFor="formRadio">
           Form
         </label>
+        <input
+            type="radio"
+            className="btn-check"
+            name="extractRadio"
+            id="queryRadio"
+            value="queries"
+            checked={extractType === "queries"}
+            disabled={!props.hasImage}
+            onChange={(event) => setExtractType(event.target.value)}
+            autoComplete="off"
+        />
+        <label className="btn btn-outline-secondary" htmlFor="queryRadio">
+          Query
+        </label>
       </div>
       <div className="btn-group" role="group" aria-label="Extract group">
         <button
-          type="button"
-          className="btn btn-primary"
-          disabled={!props.hasImage || props.extracting}
-          onClick={() => props.extract(syncSelection, extractType)}
+            type="button"
+            className="btn btn-primary"
+            disabled={!props.hasImage || props.extracting}
+            onClick={() => props.extract(syncSelection, extractType)}
         >
           <span
-            className={`spinner-border spinner-border-sm ${
-              props.extracting ? "" : "visually-hidden"
-            }`}
-            role="status"
+              className={`spinner-border spinner-border-sm ${
+                  props.extracting ? "" : "visually-hidden"
+              }`}
+              role="status"
           />
           <span className="visually-hidden">Extracting...</span>
           <span

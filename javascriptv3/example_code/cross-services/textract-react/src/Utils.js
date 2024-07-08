@@ -22,4 +22,5 @@ export const FilterMap = {
   text: ["PAGE", "LINE", "WORD"],
   table: ["PAGE", "TABLE", "CELL", "WORD"],
   form: ["PAGE", "KEY_VALUE_SET", "WORD", "SELECTION_ELEMENT"],
+  queries: ["PAGE", "LINE", "WORD"],
 };

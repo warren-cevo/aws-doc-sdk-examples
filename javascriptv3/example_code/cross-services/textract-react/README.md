@@ -214,3 +214,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
 SPDX-License-Identifier: Apache-2.0
+
+sudo chown -R w /opt/homebrew
+brew install pkg-config cairo pango libpng jpeg giflib
+export NODE_OPTIONS=--openssl-legacy-provider

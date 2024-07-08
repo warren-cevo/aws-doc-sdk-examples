@@ -198,14 +198,6 @@ Resources:
         - COGNITO
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-id/textract-cognito-demo-client-id/Resource
-  textractcognitodemoidtextractcognitodemodomainEBB6899F:
-    Type: AWS::Cognito::UserPoolDomain
-    Properties:
-      Domain: textract-demo
-      UserPoolId:
-        Ref: textractcognitodemoidA350B90F
-    Metadata:
-      aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-id/textract-cognito-demo-domain/Resource
   textractcognitodemoidpool:
     Type: AWS::Cognito::IdentityPool
     Properties:
@@ -332,7 +324,7 @@ Outputs:
     Value:
       Fn::Join:
         - ""
-        - - https://textract-demo.auth.
+        - - https://textract-cog-demo.auth.
           - Ref: AWS::Region
           - .amazoncognito.com/login?client_id=
           - Ref: textractcognitodemoidtextractcognitodemoclientidB9ABA9D2

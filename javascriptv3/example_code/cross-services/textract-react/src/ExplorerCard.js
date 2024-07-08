@@ -37,6 +37,18 @@ export const ExplorerCard = (props) => {
     );
   }
 
+  let qa;
+
+  if (props.extraction?.Query) {
+    console.log(JSON.stringify(props.extraction?.Query), '111111')
+    props.extraction?.Query.map(q => {
+      // qa[q?.Relationships?.[0]?.Ids?.[0]] = {
+      //   question: '',
+      // }
+      console.log(q)
+    })
+  }
+
   return (
     <div className="card" ref={cardRef}>
       <div className="card-body">

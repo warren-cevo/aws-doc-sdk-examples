@@ -158,10 +158,35 @@ export default class TextractModel {
           Name: this.imageData.objectKey,
         },
       },
+      // QueriesConfig: { // QueriesConfig
+      //   Queries: [ // Queries // required
+      //     { // Query
+      //       Text: "What is the full name?", // required
+      //     },
+      //     { // Query
+      //       Text: "What is the address?", // required
+      //     },
+      //     { // Query
+      //       Text: "What are the employment history", // required
+      //     },
+      //   ],
+      // },
+      // AdaptersConfig: { // AdaptersConfig
+      //   Adapters: [ // Adapters // required
+      //     { // Adapter
+      //       AdapterId: "284b0f2f0c9c", // required
+      //       Version: "1", // required
+      //     },
+      //   ],
+      // },
     };
     let command;
     if (extractType === "text") {
       command = new DetectDocumentTextCommand(input);
+    } else if (extractType === "queries") {
+      input["FeatureTypes"] = [FeatureType.QUERIES];
+      command = new AnalyzeDocumentCommand(input);
+      console.log('queries')
     } else {
       input["FeatureTypes"] =
         extractType === "form" ? [FeatureType.FORMS] : [FeatureType.TABLES];
@@ -173,8 +198,8 @@ export default class TextractModel {
       Name: this.imageData.objectKey,
       ExtractType: extractType,
       Children: this._make_page_hierarchy(textractResponse["Blocks"]),
+      Query: textractResponse.Blocks.filter(block => block.BlockType.includes("QUERY")),
     };
-    console.log(textractResponse);
     this.inform();
   }
 
